@@ -24,6 +24,9 @@ Plugin 'fisadev/vim-isort'
 Plugin 'lilydjwg/colorizer'
 " Plugin 'davidhalter/jedi-vim'
 Plugin 'Valloric/YouCompleteMe'
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 if has('python')
       " YAPF formatter for Python
 endif
@@ -48,6 +51,19 @@ filetype plugin indent on    " required
 
 " Plugin setting
 
+" NERD Tree --------------------------------
+
+" Open by default
+autocmd VimEnter * NERDTree
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists(“s:std_in”) | NERDTree | endif
+
+" Automatically close NERD Tree
+" autocmd bufenter * if (winnr(“$”) == 1 && exists(“b:NERDTreeType”) && b:NERDTreeType == “primary”) | q | endif                                  
+
+" let NERDTreeHijackNetrw = 0
+let NERDTreeMinimalUI = 1 
+let NERDTreeDirArrows = 1 
 " Airline --------------------------------
 
 " set status line
@@ -143,8 +159,6 @@ set splitright                  " Vertical splits open to the right of the curre
 set wildmode=longest,list       " Pressing <Tab> shows command suggestions similar to pressing <Tab>
                                 " in bash 
 
-set backspace=indent,eol,start  " Alowing backspace for indent, EOL, and start of the insert mode
-
 " Set cursor line and set it to such color
 " set cursorline                                
 " highlight CursorLine ctermbg=Gray
@@ -176,3 +190,6 @@ autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
 set cursorline 
 " cursorline color is set in colorscheme
 " highlight CursorLine cterm=none ctermbg=23
+
+" set backspace 
+set backspace=indent,eol,start
